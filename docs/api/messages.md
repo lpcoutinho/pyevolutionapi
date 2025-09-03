@@ -1,0 +1,3 @@
+# Messages
+
+::: pyevolutionapi.resources.MessageResource

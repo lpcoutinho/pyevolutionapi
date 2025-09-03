@@ -1,0 +1,3 @@
+# Groups
+
+::: pyevolutionapi.resources.GroupResource

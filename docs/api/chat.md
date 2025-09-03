@@ -1,0 +1,3 @@
+# Chat
+
+::: pyevolutionapi.resources.ChatResource

@@ -17,12 +17,8 @@ from .exceptions import (
     RateLimitError,
     ValidationError,
 )
-from .exceptions import (
-    ConnectionError as EvolutionConnectionError,
-)
-from .exceptions import (
-    TimeoutError as EvolutionTimeoutError,
-)
+from .exceptions import ConnectionError as EvolutionConnectionError
+from .exceptions import TimeoutError as EvolutionTimeoutError
 from .resources import (
     ChatResource,
     GroupResource,

@@ -68,14 +68,14 @@ from pyevolutionapi import EvolutionClient
 
 async def main():
     client = EvolutionClient()
-    
+
     async with client:
         # Create instance
         instance = await client.instance.acreate(
             instance_name="async-bot",
             qrcode=True
         )
-        
+
         # Send multiple messages concurrently
         tasks = [
             client.messages.asend_text(
@@ -85,7 +85,7 @@ async def main():
             )
             for i in range(5)
         ]
-        
+
         results = await asyncio.gather(*tasks)
         print(f"Sent {len(results)} messages!")
 
@@ -95,11 +95,13 @@ asyncio.run(main())
 ## 📋 Supported Operations
 
 ### 🏠 Instance Management
+
 - Create and manage WhatsApp instances
 - QR code generation and connection status
 - Instance restart, logout, and deletion
 
 ### 💬 Messages
+
 - Send text messages with formatting
 - Send media (images, videos, documents, audio)
 - Send location, contacts, and stickers
@@ -107,23 +109,27 @@ asyncio.run(main())
 - Status/Stories publishing
 
 ### 👥 Groups
+
 - Create and manage WhatsApp groups
 - Add/remove participants and manage permissions
 - Update group info (name, description, picture)
 - Generate and manage invite links
 
 ### 💬 Chat Operations
+
 - Manage conversations and contacts
 - Mark messages as read
 - Send presence indicators (typing, recording)
 - Block/unblock contacts
 
 ### 👤 Profile Management
+
 - Update profile information
 - Manage profile picture and status
 - Configure privacy settings
 
 ### 🔗 Webhooks & Events
+
 - Configure webhooks for real-time events
 - Support for WebSocket, RabbitMQ, and AWS SQS
 - Comprehensive event handling
@@ -296,9 +302,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 🐛 **Bug Reports**: 
+- 🐛 **Bug Reports**:
   [GitHub Issues](https://github.com/lpcoutinho/pyevolution/issues)
-- 💬 **Discussions**: 
+- 💬 **Discussions**:
   [GitHub Discussions](https://github.com/lpcoutinho/pyevolution/discussions)
 - 📧 **Email**: your.email@example.com
 

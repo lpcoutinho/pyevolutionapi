@@ -8,11 +8,7 @@ import httpx
 import pytest
 
 from pyevolutionapi import EvolutionClient
-from pyevolutionapi.exceptions import (
-    AuthenticationError,
-    NotFoundError,
-    ValidationError,
-)
+from pyevolutionapi.exceptions import AuthenticationError, NotFoundError, ValidationError
 
 
 class TestEvolutionClient:
