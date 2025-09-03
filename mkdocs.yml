@@ -1,0 +1,131 @@
+site_name: PyEvolution Documentation
+site_description: Python client for Evolution API - WhatsApp integration made simple
+site_author: Luiz Paulo Coutinho
+site_url: https://lpcoutinho.github.io/pyevolution
+
+repo_name: lpcoutinho/pyevolution
+repo_url: https://github.com/lpcoutinho/pyevolution
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+    - Configuration: getting-started/configuration.md
+  - API Reference:
+    - Client: api/client.md
+    - Instance: api/instance.md
+    - Messages: api/messages.md
+    - Groups: api/groups.md
+    - Chat: api/chat.md
+    - Profile: api/profile.md
+    - Webhooks: api/webhooks.md
+  - Examples:
+    - Basic Usage: examples/basic.md
+    - Message Types: examples/messages.md
+    - Group Management: examples/groups.md
+    - Webhooks: examples/webhooks.md
+  - Development:
+    - Contributing: development/contributing.md
+    - Testing: development/testing.md
+    - Release Process: development/releases.md
+
+plugins:
+  - search:
+      lang: en
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_root_heading: true
+            show_source: false
+            members_order: source
+            merge_init_into_class: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: lpcoutinho
+      repo: pyevolution
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/lpcoutinho/pyevolution
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/pyevolutionapi/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/luizpaulocoutinho/
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2024 Luiz Paulo Coutinho

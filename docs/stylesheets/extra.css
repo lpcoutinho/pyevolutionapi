@@ -1,0 +1,55 @@
+/* Custom styles for PyEvolution documentation */
+
+/* Badge styling */
+.badges {
+    margin: 1rem 0;
+}
+
+.badges img {
+    margin: 0.2rem 0.2rem 0.2rem 0;
+}
+
+/* Code block improvements */
+.highlight pre {
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Admonition styling */
+.admonition {
+    border-radius: 0.5rem;
+}
+
+/* Navigation improvements */
+.md-nav__title {
+    font-weight: 600;
+}
+
+/* Footer improvements */
+.md-footer {
+    background: linear-gradient(135deg, var(--md-primary-fg-color) 0%, var(--md-primary-fg-color--dark) 100%);
+}
+
+/* Custom logo space */
+.md-header__title {
+    margin-left: 0.5rem;
+}
+
+/* Improved table styling */
+.md-typeset table:not([class]) {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Better spacing for code blocks */
+.md-typeset .codehilite {
+    margin: 1rem 0;
+}
+
+/* Custom colors for dark mode */
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #3b82f6;
+    --md-primary-fg-color--light: #60a5fa;
+    --md-primary-fg-color--dark: #2563eb;
+}
