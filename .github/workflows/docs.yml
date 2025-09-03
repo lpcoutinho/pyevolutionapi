@@ -44,55 +44,24 @@ jobs:
           if [ -f mkdocs.yml ]; then
             mkdocs build --strict
           else
-            echo "No mkdocs.yml found, creating simple docs"
+            echo "No mkdocs.yml found, creating simple redirect"
             mkdir -p site
-            cat > site/index.html << 'EOF'
+            cat > site/index.html << 'HTML_END'
           <!DOCTYPE html>
           <html>
           <head>
               <title>PyEvolution Documentation</title>
               <meta charset="utf-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1">
-              <style>
-                  body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-                  h1 { color: #333; }
-                  .redirect { background: #f0f0f0; padding: 15px; border-radius: 5px; margin: 20px 0; }
-              </style>
+              <meta http-equiv="refresh" content="0; url=https://github.com/lpcoutinho/pyevolution">
+              <style>body{font-family:Arial;text-align:center;padding:50px}</style>
           </head>
           <body>
-              <h1>PyEvolution API Documentation</h1>
-              <p>Python client library for Evolution API - WhatsApp integration made simple.</p>
-              
-              <div class="redirect">
-                  <h3>📚 Full Documentation</h3>
-                  <p>For complete documentation, examples, and API reference, visit our GitHub repository:</p>
-                  <p><strong><a href="https://github.com/lpcoutinho/pyevolution">View on GitHub</a></strong></p>
-              </div>
-
-              <h2>Quick Start</h2>
-              <pre><code>pip install pyevolutionapi</code></pre>
-
-              <h2>Basic Usage</h2>
-              <pre><code>from pyevolutionapi import EvolutionClient
-
-client = EvolutionClient(
-    base_url="http://localhost:8080",
-    api_key="your-api-key"
-)
-
-# Create instance and send message
-instance = client.instance.create("my-bot", qrcode=True)
-response = client.messages.send_text("my-bot", "5511999999999", "Hello!")</code></pre>
-
-              <h2>Resources</h2>
-              <ul>
-                  <li><a href="https://github.com/lpcoutinho/pyevolution">GitHub Repository</a></li>
-                  <li><a href="https://pypi.org/project/pyevolutionapi/">PyPI Package</a></li>
-                  <li><a href="https://evolution-api.com/">Evolution API</a></li>
-              </ul>
+              <h1>PyEvolution Documentation</h1>
+              <p>Redirecting to GitHub repository...</p>
+              <p><a href="https://github.com/lpcoutinho/pyevolution">Click here if not redirected</a></p>
           </body>
           </html>
-          EOF
+          HTML_END
           fi
 
       - name: Upload Pages artifact
