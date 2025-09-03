@@ -109,7 +109,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+          format: "pymdownx.superfences.fence_code_format"
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
@@ -119,7 +119,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/lpcoutinho/pyevolution
+      link: https://github.com/lpcoutinho/pyevolutionapi
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/pyevolutionapi/
     - icon: fontawesome/brands/linkedin

@@ -50,15 +50,15 @@ jobs:
           <!DOCTYPE html>
           <html>
           <head>
-              <title>PyEvolution Documentation</title>
+              <title>PyEvolutionAPI Documentation</title>
               <meta charset="utf-8">
-              <meta http-equiv="refresh" content="0; url=https://github.com/lpcoutinho/pyevolution">
+              <meta http-equiv="refresh" content="0; url=https://github.com/lpcoutinho/pyevolutionapi">
               <style>body{font-family:Arial;text-align:center;padding:50px}</style>
           </head>
           <body>
-              <h1>PyEvolution Documentation</h1>
+              <h1>PyEvolutionAPI Documentation</h1>
               <p>Redirecting to GitHub repository...</p>
-              <p><a href="https://github.com/lpcoutinho/pyevolution">Click here if not redirected</a></p>
+              <p><a href="https://github.com/lpcoutinho/pyevolutionapi">Click here if not redirected</a></p>
           </body>
           </html>
           HTML_END

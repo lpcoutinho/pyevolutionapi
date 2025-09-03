@@ -8,13 +8,12 @@ version = "0.1.0"
 description = "Python client for Evolution API - WhatsApp integration made simple"
 readme = "README.md"
 authors = [
-    { name = "Luiz Paulo Coutinho", email = "your.email@example.com" }
+    { name = "Luiz Paulo Coutinho", email = "coutinholps@gmail.com" }
 ]
-license = { text = "MIT" }
+license = "MIT"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
@@ -55,10 +54,10 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/lpcoutinho/pyevolution"
-Documentation = "https://lpcoutinho.github.io/pyevolution"
-Repository = "https://github.com/lpcoutinho/pyevolution"
-Issues = "https://github.com/lpcoutinho/pyevolution/issues"
+Homepage = "https://github.com/lpcoutinho/pyevolutionapi"
+Documentation = "https://lpcoutinho.github.io/pyevolutionapi"
+Repository = "https://github.com/lpcoutinho/pyevolutionapi"
+Issues = "https://github.com/lpcoutinho/pyevolutionapi/issues"
 
 [tool.setuptools.packages.find]
 include = ["pyevolutionapi*"]
