@@ -21,7 +21,7 @@ from .base import BaseResource
 class MessageResource(BaseResource):
     """Resource for sending messages."""
 
-    def send_text(self, instance: str, number: str, text: str, **kwargs) -> MessageResponse:
+    def send_text(self, instance: str, number: str, text: str, **kwargs: Any) -> MessageResponse:
         """
         Send a text message.
 
@@ -45,7 +45,7 @@ class MessageResource(BaseResource):
         mediatype: str,
         media: str,
         caption: Optional[str] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> MessageResponse:
         """
         Send a media message (image, video, document).
@@ -67,7 +67,7 @@ class MessageResource(BaseResource):
         response_data = self._post(f"/message/sendMedia/{instance}", json=message.dict_for_api())
         return self._parse_response(response_data, MessageResponse)
 
-    def send_audio(self, instance: str, number: str, audio: str, **kwargs) -> MessageResponse:
+    def send_audio(self, instance: str, number: str, audio: str, **kwargs: Any) -> MessageResponse:
         """
         Send an audio message.
 
@@ -94,7 +94,7 @@ class MessageResource(BaseResource):
         address: str,
         latitude: float,
         longitude: float,
-        **kwargs,
+        **kwargs: Any,
     ) -> MessageResponse:
         """
         Send a location message.
@@ -123,7 +123,7 @@ class MessageResource(BaseResource):
         return self._parse_response(response_data, MessageResponse)
 
     def send_contact(
-        self, instance: str, number: str, contacts: List[Dict[str, Any]], **kwargs
+        self, instance: str, number: str, contacts: List[Dict[str, Any]], **kwargs: Any
     ) -> MessageResponse:
         """
         Send contact(s).
@@ -158,7 +158,9 @@ class MessageResource(BaseResource):
         response_data = self._post(f"/message/sendReaction/{instance}", json=message.dict_for_api())
         return self._parse_response(response_data, MessageResponse)
 
-    def send_sticker(self, instance: str, number: str, sticker: str, **kwargs) -> MessageResponse:
+    def send_sticker(
+        self, instance: str, number: str, sticker: str, **kwargs: Any
+    ) -> MessageResponse:
         """
         Send a sticker.
 
@@ -182,7 +184,7 @@ class MessageResource(BaseResource):
         name: str,
         values: List[str],
         selectable_count: int = 1,
-        **kwargs,
+        **kwargs: Any,
     ) -> MessageResponse:
         """
         Send a poll message.
@@ -217,7 +219,7 @@ class MessageResource(BaseResource):
         content: str,
         all_contacts: bool = False,
         status_jid_list: Optional[List[str]] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> MessageResponse:
         """
         Send a status/story.
@@ -246,7 +248,9 @@ class MessageResource(BaseResource):
         return self._parse_response(response_data, MessageResponse)
 
     # Async methods
-    async def asend_text(self, instance: str, number: str, text: str, **kwargs) -> MessageResponse:
+    async def asend_text(
+        self, instance: str, number: str, text: str, **kwargs: Any
+    ) -> MessageResponse:
         """Async version of send_text."""
         message = TextMessage(number=number, text=text, **kwargs)
         response_data = await self._apost(

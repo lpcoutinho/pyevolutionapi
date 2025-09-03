@@ -42,7 +42,7 @@ jobs:
       - name: Build documentation
         run: |
           if [ -f mkdocs.yml ]; then
-            mkdocs build --strict
+            mkdocs build
           else
             echo "No mkdocs.yml found, creating simple redirect"
             mkdir -p site

@@ -54,7 +54,7 @@ class EvolutionClient:
         max_retries: Optional[int] = None,
         verify_ssl: bool = True,
         debug: bool = False,
-        **kwargs,
+        **kwargs: Any,
     ):
         """
         Initialize Evolution API client.
@@ -163,7 +163,7 @@ class EvolutionClient:
         params: Optional[Dict[str, Any]] = None,
         headers: Optional[Dict[str, str]] = None,
         files: Optional[Dict[str, Any]] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> httpx.Response:
         """
         Make an HTTP request to the Evolution API.

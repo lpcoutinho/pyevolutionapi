@@ -29,7 +29,7 @@ class BaseResource:
         endpoint: str,
         instance: Optional[str] = None,
         params: Optional[Dict[str, Any]] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         """Make a GET request."""
         response = self.client.request("GET", endpoint, instance=instance, params=params, **kwargs)
@@ -42,7 +42,7 @@ class BaseResource:
         json: Optional[Dict[str, Any]] = None,
         data: Optional[Dict[str, Any]] = None,
         files: Optional[Dict[str, Any]] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         """Make a POST request."""
         response = self.client.request(
@@ -55,7 +55,7 @@ class BaseResource:
         endpoint: str,
         instance: Optional[str] = None,
         json: Optional[Dict[str, Any]] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         """Make a PUT request."""
         response = self.client.request("PUT", endpoint, instance=instance, json=json, **kwargs)
@@ -66,7 +66,7 @@ class BaseResource:
         endpoint: str,
         instance: Optional[str] = None,
         json: Optional[Dict[str, Any]] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         """Make a DELETE request."""
         response = self.client.request("DELETE", endpoint, instance=instance, json=json, **kwargs)
@@ -92,7 +92,7 @@ class BaseResource:
         endpoint: str,
         instance: Optional[str] = None,
         params: Optional[Dict[str, Any]] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         """Make an async GET request."""
         response = await self.client.arequest(
@@ -107,7 +107,7 @@ class BaseResource:
         json: Optional[Dict[str, Any]] = None,
         data: Optional[Dict[str, Any]] = None,
         files: Optional[Dict[str, Any]] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         """Make an async POST request."""
         response = await self.client.arequest(
@@ -120,7 +120,7 @@ class BaseResource:
         endpoint: str,
         instance: Optional[str] = None,
         json: Optional[Dict[str, Any]] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         """Make an async PUT request."""
         response = await self.client.arequest(
@@ -133,7 +133,7 @@ class BaseResource:
         endpoint: str,
         instance: Optional[str] = None,
         json: Optional[Dict[str, Any]] = None,
-        **kwargs,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         """Make an async DELETE request."""
         response = await self.client.arequest(

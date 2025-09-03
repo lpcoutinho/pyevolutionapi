@@ -11,7 +11,7 @@ from .base import BaseResource
 class InstanceResource(BaseResource):
     """Resource for managing instances."""
 
-    def create(self, instance_name: str, qrcode: bool = True, **kwargs) -> InstanceResponse:
+    def create(self, instance_name: str, qrcode: bool = True, **kwargs: Any) -> InstanceResponse:
         """
         Create a new instance.
 
@@ -138,7 +138,9 @@ class InstanceResource(BaseResource):
         return self._delete(f"/instance/delete/{instance}")
 
     # Async methods
-    async def acreate(self, instance_name: str, qrcode: bool = True, **kwargs) -> InstanceResponse:
+    async def acreate(
+        self, instance_name: str, qrcode: bool = True, **kwargs: Any
+    ) -> InstanceResponse:
         """Async version of create."""
         data = InstanceCreate(instance_name=instance_name, qrcode=qrcode, **kwargs).dict_for_api()
 
