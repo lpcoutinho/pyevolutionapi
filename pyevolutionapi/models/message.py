@@ -2,14 +2,17 @@
 Models for Message operations.
 """
 
-from typing import Optional, List, Dict, Any, Union
 from enum import Enum
+from typing import Any, Dict, List, Optional, Union
+
 from pydantic import Field, HttpUrl
+
 from .base import BaseModel, BaseResponse
 
 
 class MessageStatus(str, Enum):
     """Message status types."""
+
     PENDING = "PENDING"
     SENT = "SENT"
     DELIVERED = "DELIVERED"
@@ -19,6 +22,7 @@ class MessageStatus(str, Enum):
 
 class MediaType(str, Enum):
     """Media types for messages."""
+
     IMAGE = "image"
     VIDEO = "video"
     AUDIO = "audio"
@@ -27,6 +31,7 @@ class MediaType(str, Enum):
 
 class MessageType(str, Enum):
     """Types of messages."""
+
     TEXT = "text"
     IMAGE = "image"
     VIDEO = "video"
@@ -43,7 +48,7 @@ class MessageType(str, Enum):
 
 class BaseMessage(BaseModel):
     """Base model for all message types."""
-    
+
     number: str = Field(..., description="Recipient phone number (without @s.whatsapp.net)")
     delay: Optional[int] = Field(None, description="Delay in milliseconds before sending")
     quoted: Optional[Dict[str, Any]] = Field(None, description="Message to quote/reply to")
@@ -53,14 +58,14 @@ class BaseMessage(BaseModel):
 
 class TextMessage(BaseMessage):
     """Model for sending text messages."""
-    
+
     text: str = Field(..., description="Text content to send")
     link_preview: Optional[bool] = Field(True, alias="linkPreview")
 
 
 class MediaMessage(BaseMessage):
     """Model for sending media messages."""
-    
+
     mediatype: MediaType = Field(..., description="Type of media")
     media: Union[str, HttpUrl] = Field(..., description="URL or base64 of the media")
     caption: Optional[str] = Field(None, description="Caption for the media")
@@ -70,14 +75,14 @@ class MediaMessage(BaseMessage):
 
 class AudioMessage(BaseMessage):
     """Model for sending audio messages."""
-    
+
     audio: Union[str, HttpUrl] = Field(..., description="URL or base64 of the audio")
     encoding: Optional[bool] = Field(True, description="Whether to encode as WhatsApp audio")
 
 
 class LocationMessage(BaseMessage):
     """Model for sending location messages."""
-    
+
     name: str = Field(..., description="Name of the location")
     address: str = Field(..., description="Address of the location")
     latitude: float = Field(..., description="Latitude coordinate")
@@ -86,7 +91,7 @@ class LocationMessage(BaseMessage):
 
 class ContactCard(BaseModel):
     """Model for a contact card."""
-    
+
     full_name: str = Field(..., alias="fullName")
     wuid: str = Field(..., description="WhatsApp user ID (phone without formatting)")
     phone_number: Optional[str] = Field(None, alias="phoneNumber")
@@ -97,28 +102,30 @@ class ContactCard(BaseModel):
 
 class ContactMessage(BaseMessage):
     """Model for sending contact messages."""
-    
+
     contact: List[ContactCard] = Field(..., description="List of contacts to send")
 
 
 class ReactionMessage(BaseModel):
     """Model for sending reaction to messages."""
-    
+
     key: Dict[str, Any] = Field(..., description="Message key to react to")
     reaction: str = Field(..., description="Emoji reaction")
 
 
 class PollMessage(BaseMessage):
     """Model for sending poll messages."""
-    
+
     name: str = Field(..., description="Poll question")
-    selectable_count: int = Field(1, alias="selectableCount", description="How many options can be selected")
+    selectable_count: int = Field(
+        1, alias="selectableCount", description="How many options can be selected"
+    )
     values: List[str] = Field(..., description="Poll options")
 
 
 class ListRow(BaseModel):
     """Model for a list row."""
-    
+
     title: str
     description: str
     row_id: str = Field(..., alias="rowId")
@@ -126,14 +133,14 @@ class ListRow(BaseModel):
 
 class ListSection(BaseModel):
     """Model for a list section."""
-    
+
     title: str
     rows: List[ListRow]
 
 
 class ListMessage(BaseMessage):
     """Model for sending list messages."""
-    
+
     title: str
     description: str
     button_text: str = Field(..., alias="buttonText")
@@ -143,7 +150,7 @@ class ListMessage(BaseMessage):
 
 class Button(BaseModel):
     """Model for a button."""
-    
+
     type: str  # reply, copy, url, call, pix
     display_text: str = Field(..., alias="displayText")
     id: Optional[str] = None
@@ -154,7 +161,7 @@ class Button(BaseModel):
 
 class ButtonMessage(BaseMessage):
     """Model for sending button messages."""
-    
+
     title: str
     description: str
     footer: Optional[str] = None
@@ -163,13 +170,13 @@ class ButtonMessage(BaseMessage):
 
 class StickerMessage(BaseMessage):
     """Model for sending sticker messages."""
-    
+
     sticker: Union[str, HttpUrl] = Field(..., description="URL or base64 of the sticker")
 
 
 class StatusMessage(BaseModel):
     """Model for sending status/stories."""
-    
+
     type: MessageType = Field(..., description="Type of status (text, image, video, audio)")
     content: str = Field(..., description="Content (text or URL)")
     caption: Optional[str] = Field(None, description="Caption for media status")
@@ -181,7 +188,7 @@ class StatusMessage(BaseModel):
 
 class MessageKey(BaseModel):
     """Model for message key/identifier."""
-    
+
     remote_jid: str = Field(..., alias="remoteJid")
     from_me: bool = Field(..., alias="fromMe")
     id: str
@@ -189,7 +196,7 @@ class MessageKey(BaseModel):
 
 class MessageInfo(BaseModel):
     """Model for message information."""
-    
+
     key: MessageKey
     message: Optional[Dict[str, Any]] = None
     message_timestamp: Optional[int] = Field(None, alias="messageTimestamp")
@@ -199,11 +206,11 @@ class MessageInfo(BaseModel):
 
 class MessageResponse(BaseResponse):
     """Response for message operations."""
-    
+
     key: Optional[MessageKey] = None
     message: Optional[MessageInfo] = None
     messages: Optional[List[MessageInfo]] = None
-    
+
     @property
     def message_id(self) -> Optional[str]:
         """Get the message ID if available."""

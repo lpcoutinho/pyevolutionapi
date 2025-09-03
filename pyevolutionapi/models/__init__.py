@@ -3,30 +3,30 @@ Data models for Evolution API resources.
 """
 
 from .base import BaseModel, BaseResponse
-from .instance import Instance, InstanceCreate, InstanceResponse, ConnectionState
-from .message import (
-    TextMessage,
-    MediaMessage,
-    LocationMessage,
-    ContactMessage,
-    ReactionMessage,
-    AudioMessage,
-    StickerMessage,
-    MessageResponse,
-    MessageStatus,
+from .chat import (
+    Chat,
+    Contact,
+    PrivacySettings,
+    ProfilePicture,
 )
 from .group import (
     Group,
     GroupCreate,
-    GroupUpdate,
     GroupParticipant,
     GroupResponse,
+    GroupUpdate,
 )
-from .chat import (
-    Chat,
-    Contact,
-    ProfilePicture,
-    PrivacySettings,
+from .instance import ConnectionState, Instance, InstanceCreate, InstanceResponse
+from .message import (
+    AudioMessage,
+    ContactMessage,
+    LocationMessage,
+    MediaMessage,
+    MessageResponse,
+    MessageStatus,
+    ReactionMessage,
+    StickerMessage,
+    TextMessage,
 )
 from .webhook import (
     WebhookConfig,

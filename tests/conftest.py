@@ -2,10 +2,10 @@
 Pytest configuration and fixtures.
 """
 
-import os
-import pytest
 from unittest.mock import Mock
+
 import httpx
+import pytest
 
 from pyevolutionapi import EvolutionClient
 
@@ -26,9 +26,7 @@ def mock_base_url():
 def client(mock_base_url, mock_api_key):
     """Create a test client."""
     return EvolutionClient(
-        base_url=mock_base_url,
-        api_key=mock_api_key,
-        default_instance="test-instance"
+        base_url=mock_base_url, api_key=mock_api_key, default_instance="test-instance"
     )
 
 
@@ -49,16 +47,12 @@ def mock_instance_response():
     """Mock instance creation response."""
     return {
         "status": "success",
-        "instance": {
-            "instanceName": "test-instance",
-            "status": "created",
-            "state": "close"
-        },
+        "instance": {"instanceName": "test-instance", "status": "created", "state": "close"},
         "hash": "test-hash-123",
         "qrcode": {
             "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==",
-            "code": "test-qr-code"
-        }
+            "code": "test-qr-code",
+        },
     }
 
 
@@ -70,11 +64,9 @@ def mock_message_response():
         "key": {
             "remoteJid": "5511999999999@s.whatsapp.net",
             "fromMe": True,
-            "id": "3EB0F4A1F841F02958FB74"
+            "id": "3EB0F4A1F841F02958FB74",
         },
-        "message": {
-            "conversation": "Hello World!"
-        }
+        "message": {"conversation": "Hello World!"},
     }
 
 

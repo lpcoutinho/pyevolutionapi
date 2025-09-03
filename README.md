@@ -287,14 +287,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [Evolution API](https://github.com/EvolutionAPI/evolution-api) - The powerful WhatsApp API that makes this possible
-- [Pydantic](https://github.com/pydantic/pydantic) - For excellent data validation
-- [httpx](https://github.com/encode/httpx) - For modern HTTP client capabilities
+- [Evolution API](https://github.com/EvolutionAPI/evolution-api) - The powerful
+  WhatsApp API that makes this possible
+- [Pydantic](https://github.com/pydantic/pydantic) - For excellent data
+  validation
+- [httpx](https://github.com/encode/httpx) - For modern HTTP client
+  capabilities
 
 ## 📞 Support
 
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/lpcoutinho/pyevolution/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/lpcoutinho/pyevolution/discussions)
+- 🐛 **Bug Reports**: 
+  [GitHub Issues](https://github.com/lpcoutinho/pyevolution/issues)
+- 💬 **Discussions**: 
+  [GitHub Discussions](https://github.com/lpcoutinho/pyevolution/discussions)
 - 📧 **Email**: your.email@example.com
 
 ## 🔗 Links

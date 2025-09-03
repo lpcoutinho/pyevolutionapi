@@ -57,69 +57,32 @@ jobs:
           if [ -f mkdocs.yml ]; then
             mkdocs build --verbose --clean --strict
           else
-            echo "⚠️ mkdocs.yml not found, creating basic documentation structure"
+            echo "mkdocs.yml not found, creating basic documentation structure"
             mkdir -p site
-            echo "<!DOCTYPE html>
-            <html>
-            <head>
-                <title>PyEvolution Documentation</title>
-                <meta charset='utf-8'>
-                <meta name='viewport' content='width=device-width, initial-scale=1'>
-                <style>
-                    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
-                    h1 { color: #2563eb; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-                    pre { background: #f3f4f6; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
-                    code { background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 0.25rem; }
-                    .badge { display: inline-block; margin: 0.25rem; }
-                </style>
-            </head>
-            <body>
-                <h1>PyEvolution Documentation</h1>
-                <p>Python client for Evolution API - WhatsApp integration made simple</p>
-                
-                <div>
-                    <img src='https://img.shields.io/github/workflow/status/lpcoutinho/pyevolution/CI/main' alt='CI Status' class='badge'>
-                    <img src='https://img.shields.io/codecov/c/github/lpcoutinho/pyevolution' alt='Coverage' class='badge'>
-                    <img src='https://img.shields.io/pypi/v/pyevolutionapi' alt='PyPI version' class='badge'>
-                    <img src='https://img.shields.io/pypi/pyversions/pyevolutionapi' alt='Python versions' class='badge'>
-                </div>
-
-                <h2>Quick Start</h2>
-                <pre><code>pip install pyevolutionapi</code></pre>
-                
-                <pre><code>from pyevolutionapi import EvolutionClient
-
-# Create client
-client = EvolutionClient(
-    base_url=\"http://localhost:8080\",
-    api_key=\"your-api-key-here\"
-)
-
-# Send a message
-response = client.messages.send_text(
-    instance=\"my-whatsapp-bot\",
-    number=\"5511999999999\",
-    text=\"Hello from PyEvolution! 🚀\"
-)
-
-print(f\"Message sent! ID: {response.message_id}\")</code></pre>
-
-                <h2>Documentation</h2>
-                <p>For detailed documentation, please visit the <a href='https://github.com/lpcoutinho/pyevolution'>GitHub repository</a>.</p>
-                
-                <h2>Features</h2>
-                <ul>
-                    <li>🎯 Type-safe with complete type hints</li>
-                    <li>🔄 Async/Sync support</li>
-                    <li>🛡️ Comprehensive error handling</li>
-                    <li>📱 Complete API coverage</li>
-                    <li>🔧 Easy configuration</li>
-                    <li>📚 Well documented</li>
-                    <li>✅ Tested</li>
-                    <li>🔌 Webhook support</li>
-                </ul>
-            </body>
-            </html>" > site/index.html
+            cat > site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>PyEvolution Documentation</title>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <style>
+                  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+                  h1 { color: #2563eb; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
+                  pre { background: #f3f4f6; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+                  code { background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 0.25rem; }
+                  .badge { display: inline-block; margin: 0.25rem; }
+              </style>
+          </head>
+          <body>
+              <h1>PyEvolution Documentation</h1>
+              <p>Python client for Evolution API - WhatsApp integration made simple</p>
+              <h2>Quick Start</h2>
+              <pre><code>pip install pyevolutionapi</code></pre>
+              <p>For detailed documentation, visit the <a href="https://github.com/lpcoutinho/pyevolution">GitHub repository</a>.</p>
+          </body>
+          </html>
+          EOF
           fi
 
       - name: Setup Pages

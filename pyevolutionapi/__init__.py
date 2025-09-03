@@ -22,13 +22,13 @@ __license__ = "MIT"
 
 from .client import EvolutionClient
 from .exceptions import (
-    EvolutionAPIError,
     AuthenticationError,
-    NotFoundError,
-    ValidationError,
     ConnectionError,
-    TimeoutError,
+    EvolutionAPIError,
+    NotFoundError,
     RateLimitError,
+    TimeoutError,
+    ValidationError,
 )
 
 __all__ = [
@@ -44,29 +44,23 @@ __all__ = [
 
 
 def create_client(
-    base_url: str,
-    api_key: Optional[str] = None,
-    instance_name: Optional[str] = None,
-    **kwargs
+    base_url: str, api_key: Optional[str] = None, instance_name: Optional[str] = None, **kwargs
 ) -> EvolutionClient:
     """
     Factory function to create an Evolution API client.
-    
+
     Args:
         base_url: The base URL of the Evolution API
         api_key: Global API key for authentication (optional)
         instance_name: Default instance name to use (optional)
         **kwargs: Additional configuration options
-        
+
     Returns:
         EvolutionClient: Configured client instance
-        
+
     Example:
         >>> client = create_client("http://localhost:8080", api_key="my-key")
     """
     return EvolutionClient(
-        base_url=base_url,
-        api_key=api_key,
-        default_instance=instance_name,
-        **kwargs
+        base_url=base_url, api_key=api_key, default_instance=instance_name, **kwargs
     )
