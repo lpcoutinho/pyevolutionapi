@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyevolutionapi"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python client for Evolution API - WhatsApp integration made simple"
 readme = "README.md"
 authors = [

@@ -30,9 +30,11 @@ class InstanceStatus(str, Enum):
     """Status of an instance."""
 
     CREATED = "created"
+    CONNECTING = "connecting"
     CONNECTED = "connected"
     DISCONNECTED = "disconnected"
     DELETED = "deleted"
+    CLOSE = "close"  # Status retornado pela API real
 
 
 class ProxyConfig(BaseModel):
@@ -106,8 +108,9 @@ class InstanceCreate(BaseModel):
 class Instance(TimestampedModel):
     """Model for an instance."""
 
-    instance_name: str = Field(..., alias="instanceName")
+    instance_name: Optional[str] = Field(None, alias="instanceName")
     instance_id: Optional[str] = Field(None, alias="instanceId")
+    id: Optional[str] = None  # Real API returns 'id' field
     status: Optional[InstanceStatus] = None
     state: Optional[ConnectionState] = None
     integration: Optional[IntegrationType] = None
@@ -122,13 +125,24 @@ class Instance(TimestampedModel):
     server_url: Optional[str] = Field(None, alias="serverUrl")
     apikey: Optional[str] = None
 
+    # Real API fields (case-sensitive as returned by API)
+    Chatwoot: Optional[Dict[str, Any]] = None
+    Proxy: Optional[Dict[str, Any]] = None
+    Rabbitmq: Optional[Dict[str, Any]] = None
+    Setting: Optional[Dict[str, Any]] = None
+
     # Connection info
-    qrcode: Optional[Dict[str, str]] = None  # Contains 'base64' and 'code' fields
+    qrcode: Optional[Dict[str, Any]] = None  # Contains 'base64' and 'code' fields
 
     @property
     def is_connected(self) -> bool:
         """Check if instance is connected."""
         return self.state == ConnectionState.OPEN
+
+    @property
+    def name(self) -> Optional[str]:
+        """Get instance name from any available field."""
+        return self.instance_name or self.instance_id or self.id
 
     @property
     def qr_code_base64(self) -> Optional[str]:
@@ -144,7 +158,7 @@ class InstanceResponse(BaseResponse):
     instance: Optional[Instance] = None
     instances: Optional[List[Instance]] = None
     hash: Optional[str] = Field(None, description="Instance hash/token")
-    qrcode: Optional[Dict[str, str]] = None
+    qrcode: Optional[Dict[str, Any]] = None
 
     # For connection response
     code: Optional[str] = None

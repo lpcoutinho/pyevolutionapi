@@ -1,0 +1,16 @@
+# Dependências para exibição de QR code no terminal
+# Instale com: pip install -r requirements-qr.txt
+
+# QR Code generation and display
+qrcode[pil]>=7.0.0
+
+# Image processing (incluído no qrcode[pil])
+Pillow>=9.0.0
+
+# Opcional: Para decodificação de QR codes (leitura)
+# pyzbar>=0.1.9
+
+# Já incluídas no projeto principal
+python-dotenv>=1.0.0
+httpx>=0.24.0
+pydantic>=2.0.0
