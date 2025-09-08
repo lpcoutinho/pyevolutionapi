@@ -85,7 +85,7 @@ def clean_test_instance(real_client, test_instance_name) -> Generator[str, None,
     try:
         real_client.instance.delete(instance_name)
         time.sleep(2)  # Aguarda cleanup
-    except:
+    except Exception:
         pass  # Ignora erros de cleanup inicial
 
     yield instance_name
@@ -93,7 +93,7 @@ def clean_test_instance(real_client, test_instance_name) -> Generator[str, None,
     # Cleanup após o teste
     try:
         real_client.instance.delete(instance_name)
-    except:
+    except Exception:
         pass  # Ignora erros de cleanup final
 
 
@@ -159,7 +159,7 @@ class IntegrationTestHelper:
                         if instance.status == expected_status:
                             return True
                         break
-            except:
+            except Exception:
                 pass
             time.sleep(1)
         return False
@@ -188,7 +188,7 @@ class IntegrationTestHelper:
                 status = client.instance.connection_state(instance_name)
                 if status.get("state") == expected_state.value:
                     return True
-            except:
+            except Exception:
                 pass
             time.sleep(1)
         return False

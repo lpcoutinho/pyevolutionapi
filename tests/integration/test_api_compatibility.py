@@ -85,7 +85,7 @@ class TestAPICompatibility:
         # Make several quick requests to test rate limiting
         results = []
 
-        for i in range(3):
+        for _ in range(3):
             try:
                 instances = real_client.instance.fetch_instances()
                 results.append(len(instances))

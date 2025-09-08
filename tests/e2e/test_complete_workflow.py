@@ -167,7 +167,7 @@ class TestCompleteWorkflow:
         # Restart (if supported)
         print("4️⃣ Testing restart...")
         try:
-            restart_response = real_client.instance.restart(instance_name)
+            real_client.instance.restart(instance_name)
             print("✅ Restart command accepted")
             time.sleep(2)  # Wait for restart
         except Exception as e:

@@ -135,7 +135,7 @@ class IntegrationHelper:
             try:
                 self.client.instance.delete(instance_name)
                 time.sleep(1)
-            except:
+            except Exception:
                 pass
 
             # Create new instance
@@ -200,7 +200,7 @@ class IntegrationHelper:
             True if API is available
         """
         try:
-            instances = self.client.instance.fetch_instances()
+            self.client.instance.fetch_instances()
             return True
         except Exception:
             return False
@@ -227,7 +227,7 @@ class IntegrationHelper:
                     info.update(health)
                 else:
                     info["health"] = health
-            except:
+            except Exception:
                 pass
 
         except Exception as e:
@@ -461,7 +461,7 @@ class TestInstanceManager:
             try:
                 self.client.instance.delete(name)
                 time.sleep(1)
-            except:
+            except Exception:
                 pass
 
             # Create instance

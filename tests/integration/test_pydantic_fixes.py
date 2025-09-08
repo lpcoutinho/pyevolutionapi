@@ -244,7 +244,7 @@ class TestRealInstanceCreation:
         # 5. Restart instance (muda status)
         try:
             print("🔄 Testando restart...")
-            restart_response = real_client.instance.restart(instance_name)
+            real_client.instance.restart(instance_name)
             time.sleep(2)  # Aguarda restart
 
             # Verifica status após restart
@@ -303,7 +303,7 @@ class TestRealAPIResponseParsing:
         instance_name = clean_test_instance
 
         # Cria instância para ter dados para testar
-        create_response = real_client.instance.create(instance_name=instance_name, qrcode=True)
+        real_client.instance.create(instance_name=instance_name, qrcode=True)
 
         # Lista todas as respostas possíveis da API
         endpoints_to_test = [
