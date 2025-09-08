@@ -201,7 +201,6 @@ def integration_helper():
 
 
 # Markers para diferentes tipos de testes de integração
-pytest_plugins = []
 
 
 def pytest_configure(config):
