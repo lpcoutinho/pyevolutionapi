@@ -5,7 +5,7 @@ Data models for Evolution API resources.
 from .base import BaseModel, BaseResponse
 from .chat import Chat, Contact, PrivacySettings, ProfilePicture
 from .group import Group, GroupCreate, GroupParticipant, GroupResponse, GroupUpdate
-from .instance import ConnectionState, Instance, InstanceCreate, InstanceResponse
+from .instance import ConnectionState, Instance, InstanceCreate, InstanceResponse, InstanceStatus
 from .message import (
     AudioMessage,
     ContactMessage,
@@ -28,6 +28,7 @@ __all__ = [
     "InstanceCreate",
     "InstanceResponse",
     "ConnectionState",
+    "InstanceStatus",
     # Messages
     "TextMessage",
     "MediaMessage",
