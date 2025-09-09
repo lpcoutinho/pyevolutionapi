@@ -15,9 +15,9 @@ Full documentation is available at https://github.com/lpcoutinho/pyevolution
 
 from typing import Optional
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Luiz Paulo Coutinho"
-__email__ = "your.email@example.com"
+__email__ = "coutinholps@gmail.com"
 __license__ = "MIT"
 
 from .client import EvolutionClient
